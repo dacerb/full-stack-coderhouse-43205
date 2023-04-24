@@ -10,3 +10,7 @@ tecnica para convertir codigo nuevo de js a version anteriores para retro compat
 
 # Transpilar 
 pasar un codigo de un lenguaje a otro o version a otra
+
+
+# SPA 
+Aplicacion de una unica pagina.
