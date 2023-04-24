@@ -14,3 +14,5 @@ pasar un codigo de un lenguaje a otro o version a otra
 
 # SPA 
 Aplicacion de una unica pagina.
+
+# Divs y fragment componentes
