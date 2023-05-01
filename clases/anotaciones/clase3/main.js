@@ -74,7 +74,7 @@ let {nombre: nombre_alumno, apellido, edad, escuela} = bart
 
 console.log(nombre_alumno, escuela)
 
-// para los arrays debe coincidir el orden pero en el cado de los objetos de ser por los nombres.
+// para los arrays debe coincidir el orden pero en el caso de los objetos de ser por los nombres.
 
 const listardi = [1,2,3,4,5]
 
