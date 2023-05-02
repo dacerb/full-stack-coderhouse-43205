@@ -1,5 +1,4 @@
 # Iniciar app | [Guide Vite](https://vitejs.dev/guide/)
-* cd store
 * npm run dev
 
 
