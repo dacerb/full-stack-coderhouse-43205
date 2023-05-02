@@ -7,4 +7,5 @@
 
 [HTML to JSX](https://magic.reactjs.net/htmltojsx.htm)
 
-
+# remover fondos..
+[remove.bg](https://www.remove.bg/upload)

@@ -1,0 +1,24 @@
+
+li {
+    margin: 0.8rem;
+    margin-top: 4px;
+    cursor: pointer;
+    color: lightslategrey;
+    font-size: 1rem;
+    font-weight: 900;
+    padding: 10px;
+    box-sizing: border-box;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+}
+
+
+.logo-branding {
+    width: 50px;
+    margin-right: 90px;
+}
+
+.menu-options {
+    text-align: center;
+}
+
