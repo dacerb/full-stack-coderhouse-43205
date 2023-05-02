@@ -1,6 +1,14 @@
 # full-stack-coderhouse-43205
 Modulo de React Carrera Full Stack CoderHouse
 
+# Proyecto
+> El proyecto esta creado desde app/store.
+
+```
+cd app/store
+npm run dev
+```
+
 
 ![Alt text](docs/doc-1.jpg)
 ![Alt text](docs/doc-2.jpg)
