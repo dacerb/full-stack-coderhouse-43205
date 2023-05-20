@@ -99,3 +99,5 @@ npm start
 instalar roter para la navegacion
 importante tener cuidado que react-router-dom y react-router son distintos
 
+
+El plugin de dsznajder.es7-react-js-snippets   permite utilizar el rafce para generar componentes agilmente.
