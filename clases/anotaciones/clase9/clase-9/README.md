@@ -95,3 +95,7 @@ sudo chown -R 1700280413:1010544492 "/Users/dacerbo/.npm"
 cd clase-9
 npm start
 ```
+
+instalar roter para la navegacion
+importante tener cuidado que react-router-dom y react-router son distintos
+
