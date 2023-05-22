@@ -1,6 +1,8 @@
 import './App.css'
+import Fetch from './components/Fetch/Fetch'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import NavBar from './components/NavBar/NavBar'
+import { Promises } from './components/Promises/Promises'
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
 
      <NavBar />
      <ItemListContainer greeting={"Hellow World!!"}/>
+     <Promises />
+     <Fetch />
     </>
   )
 }
