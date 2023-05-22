@@ -13,9 +13,7 @@ function App() {
     */}
 
      <NavBar />
-     <ItemListContainer greeting={"Hellow World!!"}/>
-     <Promises />
-     <Fetch />
+     <ItemListContainer greeting={"Our Products!!"}/>
     </>
   )
 }
