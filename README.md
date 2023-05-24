@@ -18,4 +18,4 @@ npm run dev
 
 
 
-[Netlify](https://645083efe0e2416ff12e6901--gregarious-haupia-7b456e.netlify.app/)
+[Netlify](https://646d9380d1215c0008fa78f8--gregarious-haupia-7b456e.netlify.app/)
