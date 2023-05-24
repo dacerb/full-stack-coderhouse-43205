@@ -17,13 +17,7 @@ function App() {
       <ItemDetailContainer/>
       
    
-      {
-        /*
-        <AsyncAwait/>
-        <Simpsons/>
-        <Nesflic/>
-        */
-      }
+  
 
      
       
