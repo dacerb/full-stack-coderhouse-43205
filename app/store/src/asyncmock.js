@@ -4,7 +4,7 @@ const products = [
         price: 2000,
         id: "1",
         img:"../img/mango-sonor.png",
-        stock: 1,
+        stock: 6,
         category: "snare",
         categoryId: "1"
     },
@@ -13,7 +13,7 @@ const products = [
         price: 3000,
         id: "2",
         img:"../img/sq1.jpg",
-        stock: 1,
+        stock: 3,
         category: "drums",
         categoryId: "2"
     },
@@ -22,7 +22,7 @@ const products = [
         price: 6000,
         id: "3",
         img:"../img/sq2.jpg",
-        stock: 1,
+        stock: 2,
         category: "drums",
         categoryId: "2"
     },
@@ -31,7 +31,7 @@ const products = [
         price: 2000,
         id: "4",
         img:"../img/webony-sonor.png",
-        stock: 1,
+        stock: 4,
         category: "snare",
         categoryId: "1"
     },
