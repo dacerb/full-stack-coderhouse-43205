@@ -12,6 +12,8 @@ const CartItem = ({item, qty}) => {
         <h4>{item.name}</h4>
         <p>qty: {qty} </p>
         <p>Price: ${item.price} </p>
+        <button>+</button>
+        <button>-</button>
         <button onClick={ ()=> deleteProduct(item.id)}> Remove Product </button>
 
     </div>

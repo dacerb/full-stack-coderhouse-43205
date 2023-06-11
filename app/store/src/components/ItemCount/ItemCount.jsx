@@ -23,7 +23,7 @@ const ItemCount = ({intialValue, stock, functionAddToCart}) => {
             <p> {counter} </p>
             <button onClick={ increment }> + </button>
         </div>
-        <button onClick={ () => functionAddToCart(counter) }> Add To Cart </button>
+        {stock > 0 && <button onClick={ () => functionAddToCart(counter) }> Add To Cart </button>}
     </>
   )
 }
