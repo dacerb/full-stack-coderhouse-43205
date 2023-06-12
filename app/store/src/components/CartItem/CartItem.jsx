@@ -4,7 +4,7 @@ import {CartContext} from '../../context/CartContext'
 
 const CartItem = ({item, qty}) => {
 
-    const {deleteProduct} = useContext(CartContext)
+    const {deleteProduct, addOneMore, DeleteOneLess} = useContext(CartContext)
 
   return (
     <div>
@@ -12,9 +12,9 @@ const CartItem = ({item, qty}) => {
         <h4>{item.name}</h4>
         <p>qty: {qty} </p>
         <p>Price: ${item.price} </p>
-        <button>+</button>
-        <button>-</button>
-        <button onClick={ ()=> deleteProduct(item.id)}> Remove Product </button>
+        <button >+</button>
+        <button >-</button>
+        <button onClick={() => deleteProduct(item.id)}> Remove Product </button>
 
     </div>
   )
