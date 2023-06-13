@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-const ItemCount = ({intialValue, stock, functionAddToCart}) => {
+const ItemCount = ({intialValue, stock, functionAddToCart, id}) => {
     const [counter, setCounter] = useState(intialValue);
 
     const increment = () => {

@@ -8,17 +8,16 @@ import { useContext } from 'react'
 const ItemDetail = ({id, name, price, img, stock, description}) => {
 
   const [addQty, setAddQty] = useState(0)
-
-  const {addProduct} = useContext(CartContext);
+  const {addProduct, cart} = useContext(CartContext);
 
   const handlerQty = (qty) => {
     setAddQty(qty);
 
-    const item = {id, name, price};
+    const item = {id, name, price, stock};
     addProduct(item, qty);
 
   }
-
+  
   return (
       <div className='itemContainer col-lg-10 col-sm-12'>
           <h3>Name: {name}</h3>
@@ -30,7 +29,7 @@ const ItemDetail = ({id, name, price, img, stock, description}) => {
           <hr />
           
           {
-            addQty > 0 ? (<Link to={"/cart"}> checkout </Link>) :  (<ItemCount intialValue={1} stock={stock} functionAddToCart={handlerQty}/>)
+            addQty > 0 ? (<button><Link to={"/cart"}> go to cart </Link></button>) :  (<ItemCount intialValue={1} stock={stock} id={id} functionAddToCart={handlerQty}/>)
           }
 
       </div>

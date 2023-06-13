@@ -1,4 +1,5 @@
 import {useState, useContext} from 'react';
+import {Link} from 'react-router-dom';
 import {CartContext} from '../../context/CartContext';
 import {db} from '../../services/config';
 import {collection, addDoc, doc, getDoc, updateDoc } from 'firebase/firestore';
@@ -130,6 +131,7 @@ const Checkout = () => {
 
                 {formError && <p> {formError} </p>}
                 <button type='submit'>Confirm Purchase</button>
+                <button><Link to={'/'}> Show Products</Link></button>
             </form>
             {
                 orderId && (

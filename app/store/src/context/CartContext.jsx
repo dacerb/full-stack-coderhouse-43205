@@ -15,26 +15,68 @@ export const CartProvider = ({children}) => {
     const [totalPrice, setTotalPrice] = useState(0);
     const [totalQty, setTotalQty] = useState(0);
 
+
+    const addOne = (id) => {
+        const productWasFound = cart.find( product => product.item.id === id)
+        console.log(productWasFound)
+
+        if (productWasFound) {
+            const cartUpdate = cart.map( product => {
+                if (product.item.id === id) {
+                    return {...product, qty: product.qty + 1};
+                }else {
+                    return product;
+                }
+            });
+            setCart(cartUpdate);
+            setTotalQty(prev => prev + 1 )
+            setTotalPrice(prev => prev + productWasFound.item.price)
+        }
+    }
+
+    const removeOne = (id) => {
+        const productWasFound = cart.find( product => product.item.id === id)
+        console.log("LTA")
+
+        if (productWasFound && productWasFound.qty > 1) {
+            console.log("ACA")
+            const cartUpdate = cart.map( product => {
+                if (product.item.id === id) {
+                    return {...product, qty: product.qty - 1};
+                }else {
+                    return product;
+                }
+            });
+            setCart(cartUpdate);
+            setTotalQty(prev => prev - 1 )
+            setTotalPrice(prev => prev - productWasFound.item.price)
+        }else {
+            deleteProduct(id)
+        }
+    }
     // Metodos del carrito
     const addProduct = (item, qty) => {
 
         const productWasFound = cart.find( product => product.item.id === item.id)
-
+        console.log("cart ", cart)
+        console.log("productWasFound", productWasFound)
         if(!productWasFound) {
             setCart(prev => [...prev, {item, qty}]);
             setTotalQty(prev => prev + qty )
             setTotalPrice(prev => prev + (item.price * qty))
             
         } else {
+            console.log("Encontre voy a actualizar")
             const cartUpdated = cart.map(product => {
                 if(product.item.id === item.id) {
+                    console.log(" Encotre y lo actualizo ")
                     return {...product, qty: product.qty + qty};
                 }else {
                     return product;
                 }
             });
             setCart(cartUpdated);
-            setCart(prev => [...prev, {item, qty}]);
+            //setCart(prev => [...prev, {item, qty}]);
             setTotalQty(prev => prev + qty )
             setTotalPrice(prev => prev + (item.price * qty))
         };
@@ -54,13 +96,9 @@ export const CartProvider = ({children}) => {
         setTotalPrice(0);
         setTotalQty(0);
     }
-
-    console.log(cart)
-    console.log("totalPrice "+ totalPrice)
-    console.log("totalQty "+totalQty)
     
     return (
-        <CartContext.Provider value={{cart, totalPrice, totalQty, addProduct, deleteCart, deleteProduct}}>
+        <CartContext.Provider value={{cart, totalPrice, totalQty, addProduct, deleteCart, deleteProduct, addOne, removeOne}}>
             {children}
         </CartContext.Provider>
     )
