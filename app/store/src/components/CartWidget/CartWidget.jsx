@@ -18,7 +18,6 @@ function CartWidget() {
                 </span>
           </div>
         </Link>
-
        </>
   )
 }

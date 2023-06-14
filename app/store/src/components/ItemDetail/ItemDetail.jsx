@@ -19,19 +19,33 @@ const ItemDetail = ({id, name, price, img, stock, description}) => {
   }
   
   return (
-      <div className='itemContainer col-lg-10 col-sm-12'>
-          <h3>Name: {name}</h3>
-          <h3>Price: ${price}</h3>
-          <h3>ID: {id} </h3>
-          <p>stock {stock}</p>
-          <p>Description: {description}</p>
-          <img className="imgProduct" src={img} alt={name} />
-          <hr />
-          
-          {
-            addQty > 0 ? (<button><Link to={"/cart"}> go to cart </Link></button>) :  (<ItemCount intialValue={1} stock={stock} id={id} functionAddToCart={handlerQty}/>)
-          }
-
+      
+      <div className='container  d-flex  justify-content-center flex-wrap gap-4 mt-4 pt-4 itemContainer pt-5 pb-5'>
+          <div className='row'>
+            <div className="col-12" style={{ width: "30rem" }}>
+            <img src={img} className="card-img-top" alt={name}/>
+            <div className="card-body">
+              <h5 className="card-title">{name}</h5>
+              <p className="card-text">{description}</p>
+              <p className="card-text">Price <strong>${price}</strong></p>
+              <p className="card-text"><small className="text-body-secondary">Updated stock: {stock}, Product id <strong>#{id}</strong></small></p>
+              {
+                addQty > 0 ? (
+                <div className='d-flex gap-3'>
+                  <Link 
+                    to={"/"}
+                    className='col-6 btn btn-outline-primary'> 
+                    Show more products </Link>
+                  <Link 
+                    to={"/cart"}
+                    className='col-4 btn btn-primary'> 
+                    Go to cart </Link>
+                </div>
+                ) :  (<ItemCount intialValue={1} stock={stock} id={id} functionAddToCart={handlerQty}/>)
+              }
+            </div>
+            </div>
+        </div>
       </div>
   )
 }
