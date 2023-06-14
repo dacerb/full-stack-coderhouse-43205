@@ -2,6 +2,7 @@ import './App.css'
 import Fetch from './components/Fetch/Fetch'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import NavBar from './components/NavBar/NavBar'
+import Footer from './components/Footer/Footer'
 import { Promises } from './components/Promises/Promises'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
@@ -24,6 +25,7 @@ function App() {
             <Route path='/checkout' element={ <Checkout/> } />
             <Route path='*' element={ <h2>Site Under Construction</h2> } />
           </Routes>
+          <Footer/>
         </CartProvider>
       </BrowserRouter>  
     </>
