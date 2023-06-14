@@ -106,12 +106,12 @@ const Checkout = () => {
                             <p>
                                 {product.item.name} <br />
                                 Qty: <small className="">{product.qty} <br />
-                                Price: {<FormatPrice price={price}/> }</small> <br />
-                                SubTotal: {(product.item.price * product.qty).toLocaleString("en", {style: "currency",currency: "USD"})}
+                                Price: {<FormatPrice price={product.item.price}/>}</small> <br />
+                                SubTotal: {<FormatPrice price={(product.item.price * product.qty)}/>}
                             </p>
                         </li>
                     ))}
-                <li className='list-group-item'>Total: {totalPrice.toLocaleString("en", {style: "currency",currency: "USD"})}</li>
+                <li className='list-group-item'>Total: {<FormatPrice price={totalPrice}/>}</li>
             </ul>
             
         </div>
@@ -141,7 +141,7 @@ const Checkout = () => {
             <div className="mb-4">
                 <label htmlFor="emailconfirm" className="form-label">Confirm Email</label>
                 <input id='emailconfirm'  className="form-control" type="text" aria-describedby="emailHelp" value={emailConfirmation} onChange={(event) => setEmailConfirmation(event.target.value)}/>
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
             </div>
 
         
