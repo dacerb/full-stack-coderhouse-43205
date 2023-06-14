@@ -13,13 +13,12 @@ function CartWidget() {
             <img className='cart-icon mt-3 mb-3 mb-sm-0 mt-sm-0' src="../../src/assets/cart.png" alt="Shopping Cart" />
             <div>
               <p>
-              <span className="position-absolute top-0 start-100 translate-middle p-1 text-dark   rounded-5 ">
-              
-                  {
-                    totalQty > 0 && <span> {totalQty} </span>
-                  }
-              </span>
+                <span className="position-absolute top-0 start-100 translate-middle p-1 text-dark   rounded-5 ">
                 
+                    {
+                      totalQty > 0 && <span> {totalQty} </span>
+                    }
+                </span>
               </p>
             </div>
           </div>
