@@ -103,9 +103,7 @@ export const CartProvider = ({children}) => {
         
         setCart([]);
         setTotalPrice(0);
-        setTotalQty(0);
-        toastr.error(`We're sorry you emptied your cart. 😫`, `Your Cart!!`);
-        
+        setTotalQty(0);        
     }
     
     return (

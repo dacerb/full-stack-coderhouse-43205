@@ -2,7 +2,8 @@ import {useContext} from 'react'
 import {CartContext} from '../../context/CartContext'
 import CartItem from '../CartItem/CartItem'
 import {Link} from 'react-router-dom'
-
+import toastr from 'toastr';
+import 'toastr/build/toastr.css';
 function Cart() {
     const {cart, totalPrice, totalQty, deleteCart} = useContext(CartContext)
 
@@ -35,7 +36,7 @@ function Cart() {
         
 
         <div className='d-flex gap-1'>
-            <button className="btn btn-outline-danger col-sx-2  col-4" onClick={() => deleteCart()}>Empty your shopping cart</button>
+            <button className="btn btn-outline-danger col-sx-2  col-4" onClick={() => {deleteCart();  toastr.error(`We're sorry you emptied your cart. 😫`, `Your Cart!!`);} }>Empty your shopping cart</button>
             <Link 
                 to={'/'}
                 className='btn btn-secondary col-sx-2  col-4'>
