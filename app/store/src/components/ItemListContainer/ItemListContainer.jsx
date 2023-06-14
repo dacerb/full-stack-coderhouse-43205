@@ -49,8 +49,9 @@ const ItemListContainer = ({greeting}) => {
 
   return (
     <>
-      <h2 className="title">{greeting}</h2>
-      <ItemList productList={products}/>
+      <div className="container text-center">
+        <ItemList productList={products}/>
+      </div>
     </>
   )
 }

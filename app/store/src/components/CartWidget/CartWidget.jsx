@@ -9,8 +9,8 @@ function CartWidget() {
   return (
        <>
         <Link to={'/cart'}>
-          <div className='cart-container'>
-            <img className='cart-icon' src="../../src/assets/cart.png" alt="Shopping Cart" />
+          <div className=''>
+            <img className='cart-icon mt-3 mb-3 mb-sm-0 mt-sm-0' src="../../src/assets/cart.png" alt="Shopping Cart" />
             <div>
               <p>
                 
