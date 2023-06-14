@@ -4,8 +4,11 @@ import {CartContext} from '../../context/CartContext';
 import {db} from '../../services/config';
 import {collection, addDoc, doc, getDoc, updateDoc } from 'firebase/firestore';
 import './Checkout.css';
+import toastr from 'toastr'
 
 const Checkout = () => {
+
+    
     const {cart, deleteCart, totalPrice} = useContext(CartContext);
 
     const [firstName, setFirstName] = useState(""); 
@@ -16,6 +19,7 @@ const Checkout = () => {
 
     const [formError, setFormError] = useState("");
     const [orderId, setOrderId] = useState("");
+
 
 
     const handlerCheckoutForm = (event) => {
@@ -62,6 +66,7 @@ const Checkout = () => {
             addDoc(collection(db, "orders"), order)
             .then((docRef) => {
                 setOrderId(docRef.id);
+                toastr.info(`Your order ID IS: ${docRef.id}`)
                 deleteCart();
             })
             .catch(error => {
@@ -72,6 +77,16 @@ const Checkout = () => {
             console.error("could not update the stock: ", error);
             setFormError("Oops! There are problems to update the stock!!.");
         })
+
+        const toastTrigger = document.getElementById('liveToastBtn')
+        const toastLiveExample = document.getElementById('liveToast')
+
+        if (toastTrigger) {
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+        toastTrigger.addEventListener('click', () => {
+            toastBootstrap.show()
+        })
+        }
         
 
         /*/ guardar orden..
@@ -87,57 +102,76 @@ const Checkout = () => {
         */
     }
 
+    
+
   return (
-    <div>
+    <div className='container mt-5 pt-5'>
         <h2>Checkout</h2>
-            <form onSubmit={handlerCheckoutForm}>
-                {cart.map(product => (
-                    <div key={product.item.id}>
-                        <p>
-                            {product.item.name} x {product.qty}
-                        </p>
-                        <p>Price: ${product.item.price}</p>
-                        <hr />
-                    </div>
-                ))}
-                <div><p>Toltal: ${totalPrice}</p></div>
-                <hr />
-                <hr />
+        <div>
+            <ul className='list-group list-group-flush'>
+            {cart.map(product => (
+                        <li className='list-group-item' key={product.item.id}>
+                            <p>
+                                {product.item.name} <br />
+                                Qty: <small className="">{product.qty} <br />
+                                Price: ${product.item.price}</small> <br />
+                                SubTotal: ${product.item.price * product.qty}
+                            </p>
+                        </li>
+                    ))}
+                <li className='list-group-item'>Total: ${totalPrice}</li>
+            </ul>
+            
+        </div>
+        <div>
+        <form onSubmit={handlerCheckoutForm}>
 
-                <div>
-                    <label htmlFor="">FirstName</label>
-                    <input type="text" value={firstName} onChange={(event) => setFirstName(event.target.value)}/>
-                </div>
+            <div className="mb-2">
+                <label htmlFor="firstname" className="form-label">First Name</label>
+                <input id='firstname' type="text" className="form-control" value={firstName} onChange={(event) => setFirstName(event.target.value)}/>
+            </div>
+            
+            <div className="mb-2">
+                <label htmlFor="lastname" className="form-label">Last Name</label>
+                <input id='lastname' type="text" className="form-control" value={lastName} onChange={(event) => setLastName(event.target.value)}/>
+            </div>
 
-                <div>
-                    <label htmlFor="">LastName</label>
-                    <input type="text" value={lastName} onChange={(event) => setLastName(event.target.value)}/>
-                </div>
+            <div className="mb-2">
+                <label htmlFor="phone" className="form-label" >Phone</label>
+                <input id='phone' type="text"  className="form-control" value={phone} onChange={(event) => setPhone(event.target.value)}/>
+            </div>
 
-                <div>
-                    <label htmlFor="">Phone</label>
-                    <input type="text" value={phone} onChange={(event) => setPhone(event.target.value)}/>
-                </div>
+            <div className="mb-2">
+                <label htmlFor="email" className="form-label">Email</label>
+                <input id='email' type="text"  className="form-control" value={email} onChange={(event) => setEmail(event.target.value)}/>
+            </div>
 
-                <div>
-                    <label htmlFor="">Email</label>
-                    <input type="text" value={email} onChange={(event) => setEmail(event.target.value)}/>
-                </div>
+            <div className="mb-4">
+                <label htmlFor="emailconfirm" className="form-label">Confirm Email</label>
+                <input id='emailconfirm'  className="form-control" type="text" aria-describedby="emailHelp" value={emailConfirmation} onChange={(event) => setEmailConfirmation(event.target.value)}/>
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
 
-                <div>
-                    <label htmlFor="">Confirm Email</label>
-                    <input type="text" value={emailConfirmation} onChange={(event) => setEmailConfirmation(event.target.value)}/>
-                </div>
-
-                {formError && <p> {formError} </p>}
-                <button type='submit'>Confirm Purchase</button>
-                <button><Link to={'/'}> Show Products</Link></button>
-            </form>
-            {
-                orderId && (
+        
+            {formError && <p> {formError} </p>}
+            
+            <div className='d-flex gap-1'>
+                <Link 
+                    to={'/'}
+                    className='btn btn-secondary'>
+                    Explore more products</Link>
+                    
+                <button className='btn btn-primary' type='submit'>Confirm Purchase</button>
+            </div>
+        </form>
+        </div>
+        {
+            orderId && (
+                <>
                     <strong>Thanks For you Purchace, your order id is: {orderId}</strong>
-                )
-            }
+                </>
+            )
+        }
     </div>
   )
 }

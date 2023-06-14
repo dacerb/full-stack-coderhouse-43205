@@ -9,8 +9,13 @@ function Cart() {
     if(totalQty  === 0) {
         return (
             <>
-                <h2>there are no products in the cart!!</h2>
-                <button><Link to={'/'}> Show Products</Link></button>
+                <div className='container mt-5 p5-5'>
+                    <h2 className='text-capitalize fs-1'>There are no products in the cart!!</h2>
+                    <Link 
+                    to={'/'}
+                    className='btn btn-primary p-2'> 
+                    Show Products</Link>
+                </div>
             </>
         )
     }
@@ -30,14 +35,14 @@ function Cart() {
         
 
         <div className='d-flex gap-1'>
-            <button className="btn btn-outline-danger col-2" onClick={() => deleteCart()}>Empty your shopping cart</button>
+            <button className="btn btn-outline-danger col-sx-2  col-4" onClick={() => deleteCart()}>Empty your shopping cart</button>
             <Link 
                 to={'/'}
-                className='btn btn-secondary'>
+                className='btn btn-secondary col-sx-2  col-4'>
                 Explore more products</Link>
             <Link 
                 to={'/checkout'}
-                className='btn btn-primary'> 
+                className='btn btn-primary col-sx-2  col-4'> 
                 Proceed to checkout</Link>
         </div>
     </div>

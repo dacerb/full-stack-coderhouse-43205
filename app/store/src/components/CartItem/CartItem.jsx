@@ -14,7 +14,7 @@ const CartItem = ({item, qty}) => {
         <div className='d-flex gap-1'>
             <button className='btn btn-primary col-1' onClick={() => addOne(item.id)}  disabled={!(item.stock > qty)}  >+</button>
             <button className='btn btn-outline-danger col-0' onClick={() => removeOne(item.id)} disabled={!(0 <= qty)} >-</button>
-            <button className='btn btn-outline-danger col-2' onClick={() => deleteProduct(item.id)}> Remove Product </button>
+            <button className='btn btn-outline-danger col-sm-3 col-8' onClick={() => deleteProduct(item.id)}> Remove Product </button>
         </div>
 
     </li>
