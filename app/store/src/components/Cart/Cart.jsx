@@ -9,7 +9,7 @@ function Cart() {
     if(totalQty  === 0) {
         return (
             <>
-                <div className='container mt-5 p5-5'>
+                <div className='container mt-5 p5-5' style={{height: "30vh"}}>
                     <h2 className='text-capitalize fs-1'>There are no products in the cart!!</h2>
                     <Link 
                     to={'/'}
@@ -31,7 +31,7 @@ function Cart() {
         </ul>
         <hr />
         <strong className='font-monospace fs-3'> Total qty: {totalQty} </strong>
-        <h2 className='font-monospace'> Total to pay: <strong>${totalPrice}</strong></h2>
+        <h2 className='font-monospace'> Total to pay: <strong>{totalPrice.toLocaleString("en", {style: "currency",currency: "USD"})}</strong></h2>
         
 
         <div className='d-flex gap-1'>

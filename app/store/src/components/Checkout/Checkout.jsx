@@ -4,7 +4,7 @@ import {CartContext} from '../../context/CartContext';
 import {db} from '../../services/config';
 import {collection, addDoc, doc, getDoc, updateDoc } from 'firebase/firestore';
 import './Checkout.css';
-import toastr from 'toastr'
+
 
 const Checkout = () => {
 
@@ -66,7 +66,6 @@ const Checkout = () => {
             addDoc(collection(db, "orders"), order)
             .then((docRef) => {
                 setOrderId(docRef.id);
-                toastr.info(`Your order ID IS: ${docRef.id}`)
                 deleteCart();
             })
             .catch(error => {
@@ -78,15 +77,7 @@ const Checkout = () => {
             setFormError("Oops! There are problems to update the stock!!.");
         })
 
-        const toastTrigger = document.getElementById('liveToastBtn')
-        const toastLiveExample = document.getElementById('liveToast')
-
-        if (toastTrigger) {
-        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-        toastTrigger.addEventListener('click', () => {
-            toastBootstrap.show()
-        })
-        }
+        
         
 
         /*/ guardar orden..
@@ -114,12 +105,12 @@ const Checkout = () => {
                             <p>
                                 {product.item.name} <br />
                                 Qty: <small className="">{product.qty} <br />
-                                Price: ${product.item.price}</small> <br />
-                                SubTotal: ${product.item.price * product.qty}
+                                Price: {product.item.price.toLocaleString("en", {style: "currency",currency: "USD"})}</small> <br />
+                                SubTotal: {(product.item.price * product.qty).toLocaleString("en", {style: "currency",currency: "USD"})}
                             </p>
                         </li>
                     ))}
-                <li className='list-group-item'>Total: ${totalPrice}</li>
+                <li className='list-group-item'>Total: {totalPrice.toLocaleString("en", {style: "currency",currency: "USD"})}</li>
             </ul>
             
         </div>
@@ -168,7 +159,9 @@ const Checkout = () => {
         {
             orderId && (
                 <>
-                    <strong>Thanks For you Purchace, your order id is: {orderId}</strong>
+                    <div className="alert alert-success mt-5" role="alert">
+                        <strong>Thanks For you Purchace, your order id is: {orderId}</strong>
+                    </div>
                 </>
             )
         }

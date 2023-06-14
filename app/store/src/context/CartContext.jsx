@@ -1,5 +1,6 @@
 import { useState, createContext } from "react";
-
+import toastr from 'toastr';
+import 'toastr/build/toastr.css';
 
 // contexto de carrito
 export const CartContext = createContext({
@@ -23,6 +24,7 @@ export const CartProvider = ({children}) => {
         if (productWasFound) {
             const cartUpdate = cart.map( product => {
                 if (product.item.id === id) {
+                    toastr.success(`You now have ${totalQty} in your cart!.. 🙂`, `${product.item.name}`);
                     return {...product, qty: product.qty + 1};
                 }else {
                     return product;
@@ -32,6 +34,7 @@ export const CartProvider = ({children}) => {
             setTotalQty(prev => prev + 1 )
             setTotalPrice(prev => prev + productWasFound.item.price)
         }
+        
     }
 
     const removeOne = (id) => {
@@ -42,6 +45,7 @@ export const CartProvider = ({children}) => {
             console.log("ACA")
             const cartUpdate = cart.map( product => {
                 if (product.item.id === id) {
+                    toastr.warning(`You now have ${totalQty} in your cart!.. 😞`, `${product.item.name}`);
                     return {...product, qty: product.qty - 1};
                 }else {
                     return product;
@@ -64,12 +68,14 @@ export const CartProvider = ({children}) => {
             setCart(prev => [...prev, {item, qty}]);
             setTotalQty(prev => prev + qty )
             setTotalPrice(prev => prev + (item.price * qty))
+            toastr.success(`You now have ${totalQty} in your cart!.. ❤️‍🔥`, `${item.name}`);
             
         } else {
             console.log("Encontre voy a actualizar")
             const cartUpdated = cart.map(product => {
                 if(product.item.id === item.id) {
                     console.log(" Encotre y lo actualizo ")
+                    toastr.success(`You now have ${totalQty} in your cart!.. :)`, `${item.name}`);
                     return {...product, qty: product.qty + qty};
                 }else {
                     return product;
@@ -79,6 +85,7 @@ export const CartProvider = ({children}) => {
             //setCart(prev => [...prev, {item, qty}]);
             setTotalQty(prev => prev + qty )
             setTotalPrice(prev => prev + (item.price * qty))
+            
         };
     }   
 
@@ -89,6 +96,7 @@ export const CartProvider = ({children}) => {
         setCart(cartUpdate);
         setTotalQty(prev => prev - productToRemove.qty )
         setTotalPrice(prev => prev - (productToRemove.item.price * productToRemove.qty))
+        toastr.error(`We are sad that you do not want to buy it 😫`, `${productToRemove.item.name}`);
     }
 
     const deleteCart = () => {
