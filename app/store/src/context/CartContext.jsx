@@ -68,7 +68,7 @@ export const CartProvider = ({children}) => {
             setCart(prev => [...prev, {item, qty}]);
             setTotalQty(prev => prev + qty )
             setTotalPrice(prev => prev + (item.price * qty))
-            toastr.success(`You now have ${totalQty} in your cart!.. ❤️‍🔥`, `${item.name}`);
+            toastr.success(`You add ${qty} in your cart!.. 🥰`, `${item.name}`);
             
         } else {
             console.log("Encontre voy a actualizar")
@@ -100,9 +100,12 @@ export const CartProvider = ({children}) => {
     }
 
     const deleteCart = () => {
+        
         setCart([]);
         setTotalPrice(0);
         setTotalQty(0);
+        toastr.error(`We're sorry you emptied your cart. 😫`, `Your Cart!!`);
+        
     }
     
     return (
