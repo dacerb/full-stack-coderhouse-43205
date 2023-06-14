@@ -1,14 +1,34 @@
 import React from 'react'
-import { useState } from 'react'
-
+import { CartContext } from '../../context/CartContext'
+import { useState, useContext } from 'react'
+import toastr from 'toastr';
+import 'toastr/build/toastr.css';
 
 const ItemCount = ({intialValue, stock, functionAddToCart, id}) => {
     const [counter, setCounter] = useState(intialValue);
+    const {cart} = useContext(CartContext);
+
+
+
 
     const increment = () => {
-        if(counter < stock) {
-            setCounter(counter + 1);
+        const productFoundInACart = cart.find(product => product.item.id === id)
+
+        if (productFoundInACart){
+            
+            const current_qty = productFoundInACart.qty
+            if(counter < stock - current_qty) {
+                setCounter(counter + 1);
+            }else {
+                toastr.warning(`There are no more available to add to your cart!!!. 🚨`, `${productFoundInACart.item.name}`);
+            }
+
+        }else {
+            if(counter < stock) {
+                setCounter(counter + 1);
+            }
         }
+        
     }
 
     const decrease = () => {

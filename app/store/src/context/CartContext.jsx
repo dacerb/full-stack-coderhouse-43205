@@ -24,7 +24,7 @@ export const CartProvider = ({children}) => {
         if (productWasFound) {
             const cartUpdate = cart.map( product => {
                 if (product.item.id === id) {
-                    toastr.success(`You now have ${totalQty} in your cart!.. 🙂`, `${product.item.name}`);
+                    toastr.success(`You added one more in your cart!.. 🙂`, `${product.item.name}`);
                     return {...product, qty: product.qty + 1};
                 }else {
                     return product;
@@ -45,7 +45,7 @@ export const CartProvider = ({children}) => {
             console.log("ACA")
             const cartUpdate = cart.map( product => {
                 if (product.item.id === id) {
-                    toastr.warning(`You now have ${totalQty} in your cart!.. 😞`, `${product.item.name}`);
+                    toastr.warning(`You removed one in your cart!.. 😞`, `${product.item.name}`);
                     return {...product, qty: product.qty - 1};
                 }else {
                     return product;
@@ -75,7 +75,7 @@ export const CartProvider = ({children}) => {
             const cartUpdated = cart.map(product => {
                 if(product.item.id === item.id) {
                     console.log(" Encotre y lo actualizo ")
-                    toastr.success(`You now have ${totalQty} in your cart!.. :)`, `${item.name}`);
+                    toastr.success(`You add ${qty} in your cart!.. 🥰`, `${item.name}`);
                     return {...product, qty: product.qty + qty};
                 }else {
                     return product;
