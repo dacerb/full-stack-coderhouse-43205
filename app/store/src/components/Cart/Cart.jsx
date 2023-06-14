@@ -18,16 +18,28 @@ function Cart() {
 
   return (
     
-    <div>
-        { cart.map( product => {
-            return <CartItem key={product.item.id} {...product}/>
-        })}
+    <div className='container mt-5 pt-5'>
+        <ul className='list-group list-group-flush'>
+            { cart.map( product => {
+                return <CartItem key={product.item.id} {...product}/>
+            })}
+        </ul>
         <hr />
-        <h3> Total to pay: ${totalPrice}</h3>
-        <h3> Total Qtys: {totalQty} </h3>
-        <button onClick={() => deleteCart()}>Empty your shopping cart</button>
-        <button><Link to={'/checkout'}> Proceed to checkout</Link></button>
-        <button><Link to={'/'}> Show Products</Link></button>
+        <strong className='font-monospace fs-3'> Total qty: {totalQty} </strong>
+        <h2 className='font-monospace'> Total to pay: <strong>${totalPrice}</strong></h2>
+        
+
+        <div className='d-flex gap-1'>
+            <button className="btn btn-outline-danger col-2" onClick={() => deleteCart()}>Empty your shopping cart</button>
+            <Link 
+                to={'/'}
+                className='btn btn-secondary'>
+                Explore more products</Link>
+            <Link 
+                to={'/checkout'}
+                className='btn btn-primary'> 
+                Proceed to checkout</Link>
+        </div>
     </div>
     
   )
