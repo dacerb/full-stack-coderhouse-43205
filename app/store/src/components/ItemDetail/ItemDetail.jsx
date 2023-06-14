@@ -4,8 +4,6 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
 import { useContext } from 'react'
-import PriceFormat from '../PriceFormat/PriceFormat'
-
 
 
 const ItemDetail = ({id, name, price, img, stock, description}) => {
@@ -19,8 +17,7 @@ const ItemDetail = ({id, name, price, img, stock, description}) => {
     const item = {id, name, price, stock};
     addProduct(item, qty);
 
-  }
-  
+  }  
   return (
       
       <div className='container  d-flex  justify-content-center flex-wrap gap-4 mt-4 pt-4 itemContainer pt-5 pb-5'>
@@ -38,7 +35,7 @@ const ItemDetail = ({id, name, price, img, stock, description}) => {
             <div className="card-body">
               <h5 className="card-title">{name}</h5>
               <p className="card-text">{description}</p>
-              <p className="card-text">Price:  <span>{price}</span> 
+              <p className="card-text">Price:  <span>{price && price.toLocaleString("en", {style: "currency", currency: "USD"})}</span> 
                 </p> 
               
               <p className="card-text"><small className="text-body-secondary">Updated stock: {stock}, Product id <strong>#{id}</strong></small></p>
