@@ -1,6 +1,6 @@
 import "./Item.css"
 import { Link } from "react-router-dom"
-
+import FormatPrice from "../FormatPrice/FormatPrice"
 
 const Item = ({id, name, price, img, stock}) => {
   return (
@@ -8,7 +8,7 @@ const Item = ({id, name, price, img, stock}) => {
           <img className="card-img-top" src={img} alt={name} />
          <div className="card-body">
           <h5 className="card-title">{name}</h5>
-          <p className="card-text">Price: {price.toLocaleString("en", {style: "currency", currency: "USD"})}<strong>
+          <p className="card-text">Price: {<FormatPrice price={price}/>}<strong>
    
           </strong></p>
           <Link className="btn btn-primary" to={`/item/${id}`}> Show details </Link>

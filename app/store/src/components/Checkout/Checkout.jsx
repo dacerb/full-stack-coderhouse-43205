@@ -1,5 +1,6 @@
 import {useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
+import FormatPrice from '../FormatPrice/FormatPrice';
 import {CartContext} from '../../context/CartContext';
 import {db} from '../../services/config';
 import {collection, addDoc, doc, getDoc, updateDoc } from 'firebase/firestore';
@@ -105,7 +106,7 @@ const Checkout = () => {
                             <p>
                                 {product.item.name} <br />
                                 Qty: <small className="">{product.qty} <br />
-                                Price: {product.item.price.toLocaleString("en", {style: "currency",currency: "USD"})}</small> <br />
+                                Price: {<FormatPrice price={price}/> }</small> <br />
                                 SubTotal: {(product.item.price * product.qty).toLocaleString("en", {style: "currency",currency: "USD"})}
                             </p>
                         </li>

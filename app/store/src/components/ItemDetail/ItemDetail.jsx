@@ -1,5 +1,6 @@
 import './ItemDetail.css'
 import ItemCount from "../ItemCount/ItemCount"
+import FormatPrice from "../FormatPrice/FormatPrice"
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
@@ -35,7 +36,7 @@ const ItemDetail = ({id, name, price, img, stock, description}) => {
             <div className="card-body">
               <h5 className="card-title">{name}</h5>
               <p className="card-text">{description}</p>
-              <p className="card-text">Price:  <span>{price && price.toLocaleString("en", {style: "currency", currency: "USD"})}</span> 
+              <p className="card-text">Price:  <span>{price && <FormatPrice price={price}/> }</span> 
                 </p> 
               
               <p className="card-text"><small className="text-body-secondary">Updated stock: {stock}, Product id <strong>#{id}</strong></small></p>
