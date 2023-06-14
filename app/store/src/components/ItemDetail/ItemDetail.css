@@ -8,3 +8,12 @@
     box-shadow: 0px 0px 39px -8px rgba(0,0,0,0.75);
 }
 
+.close_button_style {
+    width: 35px;
+    height: 35px;
+}
+
+.close_button_style p{
+    line-height: 19px;
+    margin-left: ;
+}

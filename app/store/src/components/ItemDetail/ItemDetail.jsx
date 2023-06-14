@@ -21,7 +21,18 @@ const ItemDetail = ({id, name, price, img, stock, description}) => {
   return (
       
       <div className='container  d-flex  justify-content-center flex-wrap gap-4 mt-4 pt-4 itemContainer pt-5 pb-5'>
-          <div className='row'>
+        
+          <div className='row position-relative'>
+
+
+          <Link 
+                    to={"/"}
+                    className='position-absolute top-0 start-100 translate-middle  close_button_style rounded-circle btn btn-outline-primary'> 
+                    <p className='fs-5'>x</p> </Link>
+
+
+
+         
             <div className="col-12" style={{ width: "30rem" }}>
             <img src={img} className="card-img-top" alt={name}/>
             <div className="card-body">
