@@ -1,0 +1,13 @@
+.footer_container {
+    margin-top: 10vh;
+}
+
+.footer_styles {
+    border-top: 5px solid #212121;
+    height-min: 150px;
+}
+
+.footer_style_bg_end {
+    background-color:#0D7377 ;
+    min-height: 50vb;
+}
