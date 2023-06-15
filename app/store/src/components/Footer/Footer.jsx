@@ -15,7 +15,7 @@ const Footer = () => {
                                         It demonstrates the ability to build a functional and interactive web application using React.</small>
                                 </div>
                                 <ul className=" navbar-nav me-auto mb-2 mb-lg-0  col-12 col-lg-6 align-items-center pb-2 pt-2">
-                                        <li className="nav-item"> Site Fake Sonor</li>
+                                        <li className="nav-item"> Fake website Sonor</li>
                                         <li className="nav-item">
                                             <a href="https://github.com/dacerb/full-stack-coderhouse-c43205" target='_blank' aria-current="page" className='page-link'>GitHub</a>
                                         </li>
