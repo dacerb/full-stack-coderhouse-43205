@@ -1,6 +1,6 @@
 import {useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
-import {collection, addDoc, doc, getDoc, updateDoc } from 'firebase/firestore';
+import {collection, addDoc, doc, getDoc, updateDoc, Timestamp } from 'firebase/firestore';
 
 import FormatPrice from '../FormatPrice/FormatPrice';
 import {CartContext} from '../../context/CartContext';
@@ -12,11 +12,11 @@ const Checkout = () => {
     
     const {cart, deleteCart, totalPrice} = useContext(CartContext);
 
-    const [firstName, setFirstName] = useState(""); 
-    const [lastName, setLastName] = useState(""); 
-    const [phone, setPhone] = useState(""); 
-    const [email, setEmail] = useState(""); 
-    const [emailConfirmation, setEmailConfirmation] = useState(""); 
+    const [firstName, setFirstName] = useState("Manuel"); 
+    const [lastName, setLastName] = useState("Sonor"); 
+    const [phone, setPhone] = useState("52123451"); 
+    const [email, setEmail] = useState("manuel@sonor.com"); 
+    const [emailConfirmation, setEmailConfirmation] = useState("manuel@sonor.com"); 
 
     const [place_holder_firstName, setFirstNamePH] = useState("Manuel"); 
     const [place_holder_lastName, setLastNamePH] = useState("Sonor"); 
@@ -42,9 +42,15 @@ const Checkout = () => {
     return pattern.test(value);
     };
 
-    const handlerCheckoutForm = (event) => {
-        event.preventDefault()
 
+    const handlerCheckoutForm = (event) => {
+        const submitButton = event.target.querySelector('button[type="submit"]');
+        const loader = event.target.querySelector('p[role="status"]');
+
+        loader.style.display = "block"
+        
+        event.preventDefault();
+        
         // verificaciones
         if (!firstName || !lastName || !phone || !email || !emailConfirmation){
             setFormError("Please you must complete the fields.");
@@ -77,6 +83,9 @@ const Checkout = () => {
             return;
         }
 
+        // Deshabilito el boton para no hacer multiples envios
+        submitButton.disabled = true;
+
         // generacion de objecto orden
         const order = {
             items: cart.map(product => ({
@@ -92,7 +101,6 @@ const Checkout = () => {
             date: new Date()
         };
 
-
         // guardar orden.. y descontar el stock
         Promise.all(
             order.items.map(async (orderProduct) => {
@@ -103,12 +111,14 @@ const Checkout = () => {
                     stock: currentStock - orderProduct.qty
                 });
             })
+            
         )
         .then(() => {
             addDoc(collection(db, "orders"), order)
             .then((docRef) => {
                 setOrderId(docRef.id);
                 deleteCart();
+                
             })
             .catch(error => {
                 console.error("could not create order: ", error);
@@ -124,7 +134,9 @@ const Checkout = () => {
 
   return (
     <div className='container mt-5 pt-5'>
-        <h2 className='fs-1 fw-lighter '>Checkout</h2>
+        <div className='d-flex flex-wrap gap-1 justify-content-center flex-wrap'>
+            <h2 className='fs-1 fw-lighter col-12 col-sm-3'>Checkout</h2> 
+        </div>
         <div>
         { Boolean(cart.length) && (
                 <>
@@ -171,20 +183,22 @@ const Checkout = () => {
                         <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                     </div>
 
-                
+                    
                     {
                         formError && <div className="alert alert-danger mt-5" role="alert">
                             <strong>{formError}</strong>
                             </div>
                     }
                     
-                    <div className='d-flex gap-1'>
+                    <div className='container d-flex flex-wrap justify-content-center gap-1'>
                         <Link 
                             to={'/'}
-                            className='btn btn-secondary'>
+                            className=' col-12 col-sm-10 col-lg-3 btn btn-secondary'>
                             Explore more products</Link>
-                            
-                        <button className='btn btn-primary' type='submit'>Confirm Purchase</button>
+                        <button className='col-12 col-sm-10 col-lg-3 btn btn-primary' type='submit'>Confirm Purchase</button>
+                        <div className="col-12 col-sm-10 col-lg-1 d-flex justify-content-center justify-content-start pt-0 pb-0 mt-0 mb-0" style={{height: "50px"}}>
+                            <p className=" spinner-border  text-success " role="status" style={{ marginTop: "10px", display: "none"}}></p>
+                        </div>
                     </div>
                     </form>
                 </>
