@@ -1,14 +1,17 @@
-import './ItemDetail.css'
-import ItemCount from "../ItemCount/ItemCount"
-import FormatPrice from "../FormatPrice/FormatPrice"
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { CartContext } from '../../context/CartContext'
 import { useContext } from 'react'
+
+import ItemCount from "../ItemCount/ItemCount"
+import FormatPrice from "../FormatPrice/FormatPrice"
+import { CartContext } from '../../context/CartContext'
+
+import './ItemDetail.css'
+
 
 const ItemDetail = ({id, name, price, img, stock, description}) => {
 
-  const [addQty, setAddQty] = useState(0)
+  const [addQty, setAddQty] = useState(0);
   const {addProduct} = useContext(CartContext);
 
   const handlerQty = (qty) => {

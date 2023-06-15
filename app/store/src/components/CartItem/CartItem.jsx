@@ -1,10 +1,10 @@
 import React from 'react'
 import { useContext } from 'react'
+
 import {CartContext} from '../../context/CartContext'
 import FormatPrice from '../../components/FormatPrice/FormatPrice'
 
 const CartItem = ({item, qty}) => {
-
     const {deleteProduct, addOne, removeOne} = useContext(CartContext)
 
   return (
@@ -17,7 +17,6 @@ const CartItem = ({item, qty}) => {
             <button className='btn btn-outline-danger col-0' onClick={() => removeOne(item.id)} disabled={!(0 <= qty)} >-</button>
             <button className='btn btn-outline-danger col-sm-3 col-8' onClick={() => deleteProduct(item.id)}> Remove Product </button>
         </div>
-
     </li>
   )
 }

@@ -1,5 +1,5 @@
-import "./Item.css"
 import { Link } from "react-router-dom"
+
 import FormatPrice from "../FormatPrice/FormatPrice"
 
 const Item = ({id, name, price, img, stock}) => {
@@ -9,7 +9,6 @@ const Item = ({id, name, price, img, stock}) => {
          <div className="card-body">
           <h5 className="card-title">{name}</h5>
           <p className="card-text">Price: {<FormatPrice price={price}/>}<strong>
-   
           </strong></p>
           <Link className="btn btn-primary" to={`/item/${id}`}> Show details </Link>
          </div>

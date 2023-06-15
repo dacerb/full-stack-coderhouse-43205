@@ -1,6 +1,8 @@
-import "./NavBar.css"
-import CartWidget from "../CartWidget/CartWidget"
 import { Link, NavLink } from "react-router-dom"
+
+import CartWidget from "../CartWidget/CartWidget"
+
+import "./NavBar.css"
 const NavBar = () => {
 
     const activeStyle = 'active nav-link'

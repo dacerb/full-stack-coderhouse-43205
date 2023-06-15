@@ -1,5 +1,3 @@
-import React from 'react'
-
 function FormatPrice({price}) {
   return (
     <>
@@ -7,5 +5,4 @@ function FormatPrice({price}) {
     </>
   )
 }
-
 export default FormatPrice

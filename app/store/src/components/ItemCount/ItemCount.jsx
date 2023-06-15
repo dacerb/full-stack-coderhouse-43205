@@ -1,7 +1,9 @@
 import React from 'react'
-import { CartContext } from '../../context/CartContext'
 import { useState, useContext } from 'react'
 import toastr from 'toastr';
+
+import { CartContext } from '../../context/CartContext'
+
 import 'toastr/build/toastr.css';
 
 const ItemCount = ({intialValue, stock, functionAddToCart, id}) => {

@@ -1,10 +1,10 @@
 import {useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
+import {collection, addDoc, doc, getDoc, updateDoc } from 'firebase/firestore';
+
 import FormatPrice from '../FormatPrice/FormatPrice';
 import {CartContext} from '../../context/CartContext';
 import {db} from '../../services/config';
-import {collection, addDoc, doc, getDoc, updateDoc } from 'firebase/firestore';
-import './Checkout.css';
 
 
 const Checkout = () => {
