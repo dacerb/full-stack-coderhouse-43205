@@ -14,8 +14,6 @@ const ItemDetailContainer = () => {
 
     const {itemId} = useParams();
 
-    console.log(itemId)
-
     useEffect( () => {
 
       const newDoc = doc(db, "products", itemId)  
@@ -29,15 +27,7 @@ const ItemDetailContainer = () => {
         
      }, [itemId])
 
-    /*
-    useEffect( () => {
-
-        getProductsByID(itemId)
-            .then(response => setProduct(response))
-
-    }, [itemId])
- */
-
+     
   return (
     <div>
         <ItemDetail {...product}/>

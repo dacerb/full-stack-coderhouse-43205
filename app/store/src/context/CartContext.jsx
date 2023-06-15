@@ -19,7 +19,6 @@ export const CartProvider = ({children}) => {
 
     const addOne = (id) => {
         const productWasFound = cart.find( product => product.item.id === id)
-        console.log(productWasFound)
 
         if (productWasFound) {
             const cartUpdate = cart.map( product => {
@@ -39,10 +38,8 @@ export const CartProvider = ({children}) => {
 
     const removeOne = (id) => {
         const productWasFound = cart.find( product => product.item.id === id)
-        console.log("LTA")
 
         if (productWasFound && productWasFound.qty > 1) {
-            console.log("ACA")
             const cartUpdate = cart.map( product => {
                 if (product.item.id === id) {
                     toastr.warning(`You removed one in your cart!.. 😞`, `${product.item.name}`);
@@ -62,8 +59,6 @@ export const CartProvider = ({children}) => {
     const addProduct = (item, qty) => {
 
         const productWasFound = cart.find( product => product.item.id === item.id)
-        console.log("cart ", cart)
-        console.log("productWasFound", productWasFound)
         if(!productWasFound) {
             setCart(prev => [...prev, {item, qty}]);
             setTotalQty(prev => prev + qty )
@@ -71,10 +66,8 @@ export const CartProvider = ({children}) => {
             toastr.success(`You add ${qty} in your cart!.. 🥰`, `${item.name}`);
             
         } else {
-            console.log("Encontre voy a actualizar")
             const cartUpdated = cart.map(product => {
                 if(product.item.id === item.id) {
-                    console.log(" Encotre y lo actualizo ")
                     toastr.success(`You add ${qty} in your cart!.. 🥰`, `${item.name}`);
                     return {...product, qty: product.qty + qty};
                 }else {
@@ -82,7 +75,6 @@ export const CartProvider = ({children}) => {
                 }
             });
             setCart(cartUpdated);
-            //setCart(prev => [...prev, {item, qty}]);
             setTotalQty(prev => prev + qty )
             setTotalPrice(prev => prev + (item.price * qty))
             
@@ -100,7 +92,6 @@ export const CartProvider = ({children}) => {
     }
 
     const deleteCart = () => {
-        
         setCart([]);
         setTotalPrice(0);
         setTotalQty(0);        
