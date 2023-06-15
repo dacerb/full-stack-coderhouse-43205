@@ -34,15 +34,15 @@ function Cart() {
                 <strong className='font-monospace fs-3'> Total qty: {totalQty} </strong>
                 <h2 className='font-monospace'> Total to pay: <strong>{totalPrice.toLocaleString("en", {style: "currency",currency: "USD"})}</strong></h2>
 
-                <div className='d-flex gap-1'>
-                    <button className="btn btn-outline-danger col-sx-2  col-4" onClick={() => {deleteCart();  toastr.error(`We're sorry you emptied your cart. 😫`, `Your Cart!!`);} }>Empty your shopping cart</button>
+                <div className='d-flex gap-1 flex-wrap'>
+                    <button className="btn btn-outline-danger col-12  col-sm-4" onClick={() => {deleteCart();  toastr.error(`We're sorry you emptied your cart. 😫`, `Your Cart!!`);} }>Empty your shopping cart</button>
                     <Link 
                         to={'/'}
-                        className='btn btn-secondary col-sx-2  col-4'>
+                        className='btn btn-secondary col-12  col-sm-4'>
                         Explore more products</Link>
                     <Link 
                         to={'/checkout'}
-                        className='btn btn-primary col-sx-2  col-4'> 
+                        className='btn btn-primary col-12  col-sm-3'> 
                         Proceed to checkout</Link>
                 </div>
             </div> 

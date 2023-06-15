@@ -13,7 +13,7 @@ const CartItem = ({item, qty}) => {
         <p>qty: {qty} </p>
         <p>Price: {<FormatPrice price={item.price}/>}</p>
         <div className='d-flex gap-1'>
-            <button className='btn btn-primary col-1' onClick={() => addOne(item.id)}  disabled={!(item.stock > qty)}  >+</button>
+            <button className='btn btn-primary col-0 col-sm-1' onClick={() => addOne(item.id)}  disabled={!(item.stock > qty)}>+</button>
             <button className='btn btn-outline-danger col-0' onClick={() => removeOne(item.id)} disabled={!(0 <= qty)} >-</button>
             <button className='btn btn-outline-danger col-sm-3 col-8' onClick={() => deleteProduct(item.id)}> Remove Product </button>
         </div>
