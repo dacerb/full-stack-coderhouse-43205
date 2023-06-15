@@ -13,7 +13,7 @@ const NavBar = () => {
                 <nav className="navbar navbar-expand-lg bg-body-tertiary ">
                     <div className="container  d-flex text-center mt-5 mb-4 pt-3 pb-3">
                             <div className="col">
-                                <Link to={"/"}><img className="logo-branding" src="../public/assets/sonor.png" alt="Logo Sonor" /></Link>
+                                <Link to={"/"}><img className="logo-branding" src="../assets/sonor.png" alt="Logo Sonor" /></Link>
                             </div>
                             <div className="col">
                                 <button className="navbar-toggler mb-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
