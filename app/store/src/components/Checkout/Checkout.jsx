@@ -12,11 +12,11 @@ const Checkout = () => {
     
     const {cart, deleteCart, totalPrice} = useContext(CartContext);
 
-    const [firstName, setFirstName] = useState("Manuel"); 
-    const [lastName, setLastName] = useState("Sonor"); 
-    const [phone, setPhone] = useState("52123451"); 
-    const [email, setEmail] = useState("manuel@sonor.com"); 
-    const [emailConfirmation, setEmailConfirmation] = useState("manuel@sonor.com"); 
+    const [firstName, setFirstName] = useState(""); 
+    const [lastName, setLastName] = useState(""); 
+    const [phone, setPhone] = useState(""); 
+    const [email, setEmail] = useState(""); 
+    const [emailConfirmation, setEmailConfirmation] = useState(""); 
 
     const [place_holder_firstName, setFirstNamePH] = useState("Manuel"); 
     const [place_holder_lastName, setLastNamePH] = useState("Sonor"); 
