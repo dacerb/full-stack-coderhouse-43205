@@ -7,7 +7,7 @@ import {getFirestore} from "firebase/firestore"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA8dmoh6JRwK2_V8IGUcs1IrzusG5gilDw",
+  apiKey: import.meta.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "store-sonor.firebaseapp.com",
   projectId: "store-sonor",
   storageBucket: "store-sonor.appspot.com",
