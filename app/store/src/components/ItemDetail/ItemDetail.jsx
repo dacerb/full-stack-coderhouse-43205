@@ -49,11 +49,11 @@ const ItemDetail = ({id, name, price, img, stock, description}) => {
                 <div className='d-flex gap-3'>
                   <Link 
                     to={"/"}
-                    className='col-6 btn btn-outline-primary'> 
+                    className='col-sm-6 btn btn-outline-primary'> 
                     Show more products </Link>
                   <Link 
                     to={"/cart"}
-                    className='col-4 btn btn-primary'> 
+                    className='col-sm-4 btn btn-primary'> 
                     Go to cart </Link>
                 </div>
                 ) :  (<ItemCount intialValue={1} stock={stock} id={id} functionAddToCart={handlerQty}/>)
