@@ -35,13 +35,11 @@ const ItemDetail = ({id, name, price, img, stock, description}) => {
               </Link>
          
             <div className="col-12" style={{ maxWidth: "30rem" }}>
-            <img src={img} className="card-img-top" alt={name}/>
+            <img src={img} className="card-img-top xxx" alt={name}/>
             <div className="card-body">
               <h5 className="card-title">{name}</h5>
               <p className="card-text">{description}</p>
-              <p className="card-text">Price:  <span>{price && <FormatPrice price={price}/> }</span> 
-                </p> 
-              
+              <p className="card-text">Price:  <span>{price && <FormatPrice price={price}/> }</span></p> 
               <p className="card-text"><small className="text-body-secondary">Updated stock: {stock}, Product id <strong>#{id}</strong></small></p>
              
               {
