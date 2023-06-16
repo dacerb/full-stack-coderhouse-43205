@@ -42,9 +42,9 @@ const ItemCount = ({intialValue, stock, functionAddToCart, id}) => {
   return (
     <>
         <div className='d-flex gap-3'>
-            <button className='col-2 btn btn-outline-primary' onClick={ decrease }> - </button>
-            <button className='col-2 btn btn-outline-primary' onClick={ increment }> + </button>
-            {stock > 0 && <button className='col-6 btn btn-primary' onClick={ () => functionAddToCart(counter) }> Add to cart <span className="badge">{counter}</span></button>}
+            <button className='col-2 btn btn-outline-primary' onClick={ decrease } disabled={stock ? false: true}> - </button>
+            <button className='col-2 btn btn-outline-primary' onClick={ increment } disabled={stock ? false: true}> + </button>
+            {stock ? <button className='col-6 btn btn-primary' onClick={ () => functionAddToCart(counter) }> Add to cart <span className="badge">{counter}</span></button> : <button disabled={stock ? false: true} className='col-6 btn btn-danger'> Out of Stock <span className="badge">{0}</span></button>}
         </div>
         
     </>
