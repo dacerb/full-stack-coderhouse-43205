@@ -9,6 +9,21 @@ Este es el proyecto final para el curso de React en Coderhouse. Se trata de un e
 >
 
 
+## Validaciones
+> limite de cantidades.
+<img src="doc_proyect/v1.gif" alt="Employee data" width="100%">
+*Se hace varias validaciones entro en el carrito como previo a sumar articulos si ya hay cargado el mismo producto se contemplan todos los casos para que bajo ningun punto de vista se pueda agregar al carrito mas de lo que existe en el stock actual*
+
+
+> Eliminacion de productos en el carrito.
+<img src="doc_proyect/v3.gif" alt="Employee data" width="100%">
+*Se muestran todas las posibilidades de eliminar un producto*
+
+> limite de cantidades
+<img src="doc_proyect/v2.gif" alt="Employee data" width="100%">
+  En el proceso de checkout se DESHABILITA el boton de Confirm Purchase evitando asi generar mas de una orden por la misma compra si el usuario da muchos clics a la vez.*
+
+
 ## **Tecnologías utilizadas**
 ---
 | Tecnología  | Descripción                                                                 |links|
