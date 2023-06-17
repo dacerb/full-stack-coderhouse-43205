@@ -169,7 +169,7 @@ const Checkout = () => {
 
                     <div className="mb-2">
                         <label htmlFor="phone" className="form-label" >Phone</label>
-                        <input id='phone' type="text" placeholder={place_holder_phone} className="form-control" value={phone} onChange={(event) => setPhone(event.target.value)} required/>
+                        <input id='phone' type="number" placeholder={place_holder_phone} className="form-control" value={phone} onChange={(event) => setPhone(event.target.value)} required/>
                     </div>
 
                     <div className="mb-2">
