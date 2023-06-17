@@ -23,7 +23,7 @@ Este es el proyecto final para el curso de React en Coderhouse. Se trata de un e
 
 ---
 
-`limite de cantidades`
+`Mostrar productos y finalizar compra`
 > *En el proceso de checkout se DESHABILITA el boton de Confirm Purchase evitando asi generar mas de una orden por la misma compra si el usuario da muchos clics a la vez.*
 <img src="doc_proyect/v2.gif" alt="Employee data" width="100%">
   
