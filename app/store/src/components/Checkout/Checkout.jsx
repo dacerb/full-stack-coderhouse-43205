@@ -47,8 +47,6 @@ const Checkout = () => {
         const submitButton = event.target.querySelector('button[type="submit"]');
         const loader = event.target.querySelector('p[role="status"]');
 
-        loader.style.display = "block"
-        
         event.preventDefault();
         
         // verificaciones
@@ -83,6 +81,8 @@ const Checkout = () => {
             return;
         }
 
+        loader.style.display = "block"
+        
         // Deshabilito el boton para no hacer multiples envios
         submitButton.disabled = true;
 
