@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 
 import {db} from '../../services/config'
 import ItemDetail from "../ItemDetail/ItemDetail"
+import Loader from '../Loader/Loader';
 
 const ItemDetailContainer = () => {
 
@@ -24,9 +25,15 @@ const ItemDetailContainer = () => {
 
      
   return (
+    
     <div>
-        <ItemDetail {...product}/>
+                  
+        <Loader>
+            <ItemDetail {...product}/>
+        </Loader>
+        
     </div>
+
   )
 }
 

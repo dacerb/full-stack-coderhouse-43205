@@ -190,12 +190,12 @@ const Checkout = () => {
                             </div>
                     }
                     
-                    <div className='container d-flex flex-wrap justify-content-center gap-1'>
+                    <div className='container d-flex flex-wrap justify-content-center align-items-center gap-1'>
                         <Link 
                             to={'/'}
-                            className=' col-12 col-sm-10 col-lg-3 btn btn-secondary'>
+                            className='col-12 col-sm-10 col-lg-3 btn btn-secondary'>
                             Explore more products</Link>
-                        <button className='col-12 col-sm-10 col-lg-3 btn btn-primary' type='submit'>Confirm Purchase</button>
+                        <button className='col-12 col-sm-10 col-lg-3  btn btn-primary' type='submit'>Confirm Purchase</button>
                         <div className="col-12 col-sm-10 col-lg-1 d-flex justify-content-center justify-content-start pt-0 pb-0 mt-0 mb-0" style={{height: "50px"}}>
                             <p className=" spinner-border  text-success " role="status" style={{ marginTop: "10px", display: "none"}}></p>
                         </div>

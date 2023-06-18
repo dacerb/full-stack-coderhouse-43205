@@ -8,7 +8,6 @@ import { CartContext } from '../../context/CartContext'
 
 import './ItemDetail.css'
 
-
 const ItemDetail = ({id, name, price, img, stock, description}) => {
 
   const [addQty, setAddQty] = useState(0);
@@ -22,9 +21,7 @@ const ItemDetail = ({id, name, price, img, stock, description}) => {
 
   }  
   return (
-      
       <div className='container  d-flex  justify-content-center flex-wrap gap-4 mt-4 pt-4 itemContainer pt-5 pb-5'>
-        
           <div className='row position-relative ' style={{ padding: "10px"}}>
           <Link 
               to={"/"}
@@ -33,7 +30,6 @@ const ItemDetail = ({id, name, price, img, stock, description}) => {
               type="button" 
               aria-label="Close"> 
               </Link>
-         
             <div className="col-12" style={{ maxWidth: "30rem" }}>
             <img src={img} className="card-img-top xxx" alt={name}/>
             <div className="card-body">
@@ -41,7 +37,6 @@ const ItemDetail = ({id, name, price, img, stock, description}) => {
               <p className="card-text">{description}</p>
               <p className="card-text">Price:  <span>{price && <FormatPrice price={price}/> }</span></p> 
               <p className="card-text"><small className="text-body-secondary">Updated stock: {stock}, Product id <strong>#{id}</strong></small></p>
-             
               {
                 addQty > 0 ? (
                 <div className='d-flex gap-3'>

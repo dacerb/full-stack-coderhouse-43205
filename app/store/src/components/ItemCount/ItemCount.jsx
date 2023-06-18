@@ -10,9 +10,6 @@ const ItemCount = ({intialValue, stock, functionAddToCart, id}) => {
     const [counter, setCounter] = useState(intialValue);
     const {cart} = useContext(CartContext);
 
-
-
-
     const increment = () => {
         const productFoundInACart = cart.find(product => product.item.id === id)
 
